@@ -12,6 +12,12 @@
 
 # testing
 /coverage
+*.lcov
+.nyc_output
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
 
 # next.js
 /.next/
@@ -19,19 +25,27 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
 *.pem
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+.env
+.env.*
+!.env.example
+!.env.local.example
 
 # vercel
 .vercel
@@ -39,3 +53,46 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# turbo / cache
+.turbo
+.cache
+.parcel-cache
+.eslintcache
+.stylelintcache
+
+# IDE / editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# OS
+.Spotlight-V100
+.Trashes
+
+# logs
+logs/
+*.log
+
+# temp / backup
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig
+
+# local tooling
+.sentryclirc
+
+# local database
+local.db
+local.db-*
+.migration-sync-backup/
