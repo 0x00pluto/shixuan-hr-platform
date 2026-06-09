@@ -58,6 +58,8 @@ pnpm dev
 
 ## 环境变量
 
+配置写入 `.env.local`（Next.js 与 `pnpm db:*` 命令均会读取；`db:*` 按 `.env` → `.env.local` 顺序加载，后者覆盖前者）：
+
 ```bash
 TURSO_DATABASE_URL=file:local.db   # 本地开发
 TURSO_AUTH_TOKEN=                   # 本地留空
@@ -65,7 +67,7 @@ MOCK_EXTERNAL_SERVICES=true         # 必须为 true（当前阶段）
 SESSION_SECRET=dev-secret-change-in-production
 ```
 
-生产环境切换：将 `TURSO_DATABASE_URL` 改为 `libsql://...`，并设置 `TURSO_AUTH_TOKEN`。
+生产 / 线上 Turso：在 `.env.local` 中将 `TURSO_DATABASE_URL` 改为 `libsql://...`，并设置 `TURSO_AUTH_TOKEN`，然后执行 `pnpm db:migrate`（及按需 `pnpm db:seed`）。`db:migrate` 日志应显示 `libsql://...`，而非 `file:local.db`。
 
 ## 模块路由
 

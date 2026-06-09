@@ -1,4 +1,4 @@
-import "dotenv/config";
+import "./load-env";
 import { migrate } from "drizzle-orm/libsql/migrator";
 import { createClient } from "@libsql/client";
 import { drizzle } from "drizzle-orm/libsql";
@@ -11,6 +11,9 @@ const client = createClient({
 const db = drizzle(client);
 
 async function main() {
+  if (url.startsWith("libsql://")) {
+    console.log("Connecting to remote Turso database...");
+  }
   console.log(`Applying migrations to ${url}...`);
   await migrate(db, { migrationsFolder: "./drizzle/migrations" });
   console.log("Migrations applied successfully.");

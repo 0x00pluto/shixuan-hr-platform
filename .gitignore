@@ -96,3 +96,4 @@ temp/
 local.db
 local.db-*
 .migration-sync-backup/
+.soft-reg/

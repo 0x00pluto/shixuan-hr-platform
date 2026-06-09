@@ -1,4 +1,4 @@
-import "dotenv/config";
+import "../../scripts/load-env";
 import { sql } from "drizzle-orm";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "./index";
